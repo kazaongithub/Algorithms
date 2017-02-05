@@ -1,0 +1,20 @@
+
+How to remove duplicates elements from a list or array ?
+========================================================
+
+  Best solution is to use a hash.
+
+  When you think the words "unique" or "duplicated",
+  think "hash keys".
+
+  If you don't care about order of the elements,
+  you could just create the hash and then extract the keys.
+
+  It's not important how you create the hash.
+  Just that you use "keys" to get the unique elements.
+
+  my %hash = map { $_, 1 } @array;
+  # or a hash slice: @hash{ @array } = ();
+  # or a foreach: $hash{$_} = 1 foreach ( @array );
+
+  my @unique = keys %hash;
