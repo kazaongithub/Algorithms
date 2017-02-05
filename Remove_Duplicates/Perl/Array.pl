@@ -11,7 +11,7 @@ use warnings;
 ## Returns the array that contains the unique elements
 sub remove_duplicates_from_array
 {
-    my @array = @_;
+    my $array = shift;
 
     ## The array holds all the unique elements from list
     my @unique_array = ();
@@ -20,7 +20,7 @@ sub remove_duplicates_from_array
     my $checker = -12345654321;
 
     ## For each sorted elements from the array
-    foreach my $element (sort(@array)) {
+    foreach my $element (sort(@$array)) {
 
         ## Move to next element if same
         if($checker == $element) {
@@ -35,7 +35,7 @@ sub remove_duplicates_from_array
     }
 
     ## Finally return the array that contains unique elements
-    return @unique_array;
+    return \@unique_array;
 }
 
 sub main
@@ -47,17 +47,17 @@ sub main
     my $array_size = shift;
 
     ## Range from generating random number
-    my $range = 5 * $array_size;
+    my $range = 2 * $array_size;
 
     ## Fill the array with random numbers
-    my @array;
+    my $array = [];
     foreach my $i (0..$array_size-1) {
-        $array[$i] = int(rand($range)) + 1;
+        $$array[$i] = int(rand($range)) + 1;
     }
 
     ## Calculate time
     my $now = time;
-    my @unique_array = remove_duplicates_from_array(@array);
+    $array = remove_duplicates_from_array($array);
     $now = time - $now;
 
     #print join (", ", @array) . "\n";
