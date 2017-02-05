@@ -60,13 +60,10 @@ sub main
     $array = remove_duplicates_from_array($array);
     $now = time - $now;
 
-    #print join (", ", @array) . "\n";
-    #print join (", ", @unique_array) . "\n";
-
-    printf("Array Size - %d,\tTime - %02dMin : %02dSec\n", $array_size, int(($now % 3600) / 60), int($now % 60));
+    print("Array Size - " . $array_size . "\t" . "Time - " . $now . " Seconds" . "\n");
 }
 
-print "\n\n### Time taken to remove duplicates using array sorting\n";
+print "\n\n### Remove duplicates using array sorting\n";
 # Test for 1 Lakh
 &main(100000);
 
