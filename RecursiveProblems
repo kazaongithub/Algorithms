@@ -1,0 +1,6 @@
+Recursive Programming problems
+
+- Write a recursive function intpow that given a number x, and in integer, n, will compute x^n. 
+  You must write this function recursively to full credit. Be sure to put it in a program with several test cases
+  to test that your function works correctly.
+  
